@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <modules>
+        <module>common</module>
+        <module>rest-server</module>
+    </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.4.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>com.dbstudy</groupId>
+    <artifactId>spring-demo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <description>springboot多模块项目的模板</description>
+
+    <properties>
+        <dbstudy.version>1.0-SNAPSHOT</dbstudy.version>
+        <spring.boot.version>1.5.10.RELEASE</spring.boot.version>
+        <spring.cloud.version>Dalston.SR1</spring.cloud.version>
+        <springjpa.version>1.5.9.RELEASE</springjpa.version>
+        <java.version>1.8</java.version>
+        <mysql.version>5.1.43</mysql.version>
+        <druid.version>1.1.0</druid.version>
+        <druid.springboot.version>1.0.18</druid.springboot.version>
+        <lombok.version>1.16.4</lombok.version>
+    </properties>
+
+    <!-- 设定主仓库，按设定顺序进行查找。 -->
+    <repositories>
+        <repository>
+            <id>repos</id>
+            <name>Repository</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
+    <!-- 设定插件仓库 -->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>repos</id>
+            <name>Repository</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--   dependence分为两部分   1.定义的子模块   2.需要引入的jar包版本      -->
+            <dependency>
+                <groupId>com.dbstudy</groupId>
+                <artifactId>rest-server</artifactId>
+                <version>${dbstudy.version}</version>
+            </dependency>
+            <!---->
+            <dependency>
+                <groupId>com.dbstudy</groupId>
+                <artifactId>common</artifactId>
+                <version>${dbstudy.version}</version>
+            </dependency>
+            <!---->
+
+            <dependency> <!--spring cloud-->
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+            </dependency>
+            <dependency><!--spring boot-->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency><!--spring jpa-->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>${springjpa.version}</version>
+            </dependency>
+            <dependency><!--springboot test-->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+            </dependency>
+            <dependency><!--lombok-->
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-log4j2</artifactId>
+
+            </dependency>
+            <!--     mysql和连接源       -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.springboot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+
+    </dependencies>
+
+
+</project>
